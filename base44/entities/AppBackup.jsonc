@@ -1,0 +1,52 @@
+{
+  "name": "AppBackup",
+  "type": "object",
+  "properties": {
+    "file_uri": {
+      "type": "string",
+      "description": "Private storage URI of the generated code-backup zip"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Download file name"
+    },
+    "file_count": {
+      "type": "number",
+      "description": "Number of files included in the zip"
+    },
+    "size_bytes": {
+      "type": "number",
+      "description": "Zip size in bytes"
+    },
+    "note": {
+      "type": "string",
+      "description": "Snapshot note"
+    }
+  },
+  "required": [
+    "file_uri",
+    "file_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

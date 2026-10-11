@@ -1,0 +1,53 @@
+{
+  "name": "ScheduleEntry",
+  "type": "object",
+  "properties": {
+    "member_id": {
+      "type": "string",
+      "description": "Member ID this schedule entry belongs to (null for team-based entries)"
+    },
+    "team": {
+      "type": "string",
+      "description": "Team name this schedule entry belongs to (for team-wide entries)"
+    },
+    "title": {
+      "type": "string",
+      "description": "Schedule entry title"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the entry"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Start time (HH:MM)"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "End time (HH:MM)"
+    },
+    "location": {
+      "type": "string",
+      "description": "Location"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "Member ID of creator"
+    }
+  },
+  "required": [
+    "title",
+    "date"
+  ],
+  "rls": {
+    "create": {},
+    "read": {},
+    "update": {},
+    "delete": {}
+  }
+}

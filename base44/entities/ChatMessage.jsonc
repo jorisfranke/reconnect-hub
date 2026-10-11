@@ -1,0 +1,53 @@
+{
+  "name": "ChatMessage",
+  "type": "object",
+  "properties": {
+    "channel_type": {
+      "type": "string",
+      "enum": [
+        "team",
+        "private",
+        "system"
+      ],
+      "description": "Type of channel: team, private DM, or system announcement"
+    },
+    "channel_id": {
+      "type": "string",
+      "description": "Team name or 'dm_<id1>_<id2>' for private messages, 'system' for announcements"
+    },
+    "sender_id": {
+      "type": "string",
+      "description": "Member ID of sender"
+    },
+    "sender_name": {
+      "type": "string",
+      "description": "Member name of sender"
+    },
+    "text": {
+      "type": "string",
+      "description": "Message content"
+    },
+    "is_system_notification": {
+      "type": "boolean",
+      "default": false,
+      "description": "True for system announcements by Joris"
+    },
+    "notification_type": {
+      "type": "string",
+      "enum": [
+        "update",
+        "maintenance",
+        "info",
+        "alert"
+      ],
+      "description": "Type of system notification"
+    }
+  },
+  "required": [
+    "channel_type",
+    "channel_id",
+    "sender_id",
+    "sender_name",
+    "text"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "name": "Poll",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Question or poll title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description or context"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "yes_no",
+        "multiple_choice"
+      ],
+      "default": "yes_no",
+      "description": "Type of poll"
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Answer options (for multiple_choice)"
+    },
+    "votes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "member_id": {
+            "type": "string"
+          },
+          "member_name": {
+            "type": "string"
+          },
+          "choice": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "All votes cast"
+    },
+    "is_closed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the poll is closed"
+    },
+    "created_by_id": {
+      "type": "string"
+    },
+    "created_by_name": {
+      "type": "string"
+    },
+    "visible_to_teams": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Which teams can see and vote. Empty = all."
+    }
+  },
+  "required": [
+    "title",
+    "type"
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "name": "Position",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Position / post title (e.g. Eingangskasse, B\u00fchnenhilfe)"
+    },
+    "description": {
+      "type": "string",
+      "description": "What the position involves"
+    },
+    "team": {
+      "type": "string",
+      "description": "Team name this position belongs to"
+    },
+    "location": {
+      "type": "string",
+      "description": "Where the position is located on site"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the shift"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Shift start time (HH:MM)"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "Shift end time (HH:MM)"
+    },
+    "requirements": {
+      "type": "string",
+      "description": "Requirements / expectations for applicants"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "filled",
+        "closed"
+      ],
+      "default": "open",
+      "description": "Whether the position is still open for applications"
+    },
+    "capacity": {
+      "type": "number",
+      "default": 1,
+      "description": "How many people are needed for this position"
+    },
+    "applications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "member_id": {
+            "type": "string"
+          },
+          "member_name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email for unregistered applicants"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "accepted",
+              "rejected"
+            ],
+            "default": "pending"
+          },
+          "applied_at": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Applications / assignments for this position"
+    },
+    "assigned_member_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Accepted member IDs (filled slots)"
+    },
+    "created_by_id": {
+      "type": "string",
+      "description": "Member ID of the admin who posted the position"
+    }
+  },
+  "required": [
+    "title",
+    "team",
+    "status"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

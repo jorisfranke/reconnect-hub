@@ -1,0 +1,62 @@
+{
+  "name": "Team",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Team name"
+    },
+    "color": {
+      "type": "string",
+      "enum": [
+        "violet",
+        "blue",
+        "amber",
+        "rose",
+        "emerald",
+        "slate",
+        "cyan",
+        "orange",
+        "pink",
+        "indigo"
+      ],
+      "default": "slate",
+      "description": "Color key from the team palette"
+    },
+    "description": {
+      "type": "string",
+      "description": "Team responsibilities / description"
+    },
+    "lead_id": {
+      "type": "string",
+      "description": "Member ID of the team lead (Ansprechpartner for this team)"
+    },
+    "order": {
+      "type": "number",
+      "default": 0,
+      "description": "Display order"
+    }
+  },
+  "required": [
+    "name",
+    "color"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

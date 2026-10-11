@@ -1,0 +1,40 @@
+{
+  "name": "ConceptDocument",
+  "type": "object",
+  "properties": {
+    "file_uri": {
+      "type": "string",
+      "description": "Private storage URI of the uploaded concept PDF"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Original file name"
+    },
+    "uploaded_by_name": {
+      "type": "string",
+      "description": "Name of the admin who uploaded the document"
+    }
+  },
+  "required": [
+    "file_uri",
+    "file_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

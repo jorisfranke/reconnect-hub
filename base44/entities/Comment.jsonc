@@ -1,0 +1,27 @@
+{
+  "name": "Comment",
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "description": "ID of the task this comment belongs to"
+    },
+    "member_id": {
+      "type": "string",
+      "description": "ID of the commenting member"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Name of the commenting member"
+    },
+    "text": {
+      "type": "string",
+      "description": "Comment text"
+    }
+  },
+  "required": [
+    "task_id",
+    "member_id",
+    "text"
+  ]
+}

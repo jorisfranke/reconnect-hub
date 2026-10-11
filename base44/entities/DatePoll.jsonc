@@ -1,0 +1,57 @@
+{
+  "name": "DatePoll",
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "description": "Associated task ID"
+    },
+    "title": {
+      "type": "string",
+      "description": "Poll title"
+    },
+    "proposed_dates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "votes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "member_id": {
+                  "type": "string"
+                },
+                "member_name": {
+                  "type": "string"
+                },
+                "available": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "Date options with votes"
+    },
+    "created_by_id": {
+      "type": "string"
+    },
+    "is_closed": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "proposed_dates"
+  ]
+}

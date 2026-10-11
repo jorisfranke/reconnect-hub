@@ -1,0 +1,91 @@
+{
+  "name": "Member",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Full name of the member"
+    },
+    "pin": {
+      "type": "string",
+      "description": "4-digit PIN for login"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address (for auto-created accounts from applications)"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "member"
+      ],
+      "default": "member",
+      "description": "Role of the member"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Teams this member belongs to"
+    },
+    "last_login": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last login timestamp"
+    },
+    "avatar_color": {
+      "type": "string",
+      "description": "Avatar background color"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed"
+      ],
+      "default": "confirmed",
+      "description": "Whether the member has been confirmed by an admin"
+    },
+    "contact_person_id": {
+      "type": "string",
+      "description": "Member ID of this member's Ansprechpartner (contact person)"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal notes about this member"
+    }
+  },
+  "required": [
+    "name",
+    "pin",
+    "role",
+    "teams"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "$or": [
+        {
+          "id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
